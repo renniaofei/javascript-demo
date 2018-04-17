@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算器</title>
+    <style>
+   ul, li{list-style: none; margin: 0;padding: 0;}
+   
+    .calc-wrap{
+        box-sizing: border-box;
+        border:1px solid #ddd;
+        width: 375px;
+        padding: 20px;
+    }
+    .calc-wrap .display{
+        
+         height: 51px;
+        box-sizing: border-box;
+        border: 1px solid #c0c0c0;
+    }
+    .calc-wrap .key{
+        width: 335px;
+        overflow: hidden;
+    }
+    .keyList {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -9px;
+        margin-top: -9px;
+        margin-top: 9px;
+        overflow: hidden;
+        /* width: 246px; */
+    }
+    .keyList li{
+        box-sizing: border-box;
+        display: block;
+        width: 77px;
+        height: 37px;
+        line-height: 37px;
+        border:1px solid #c6c6c6;
+        color: #444;
+        margin-right: 9px;
+        margin-top: 9px;
+        text-align: center;
+        cursor: pointer;
+        background: #f4f4f4;
+    }
+    .keyList li.gray{
+        background: #d3d3d3;
+    }
+    .keyList li.blue{
+        background: #4889f1;
+    }
+    </style>
+</head>
+<body>
+    <div class="calc-wrap">
+        <div class="display"></div>
+        <div class="key">
+            <ul class="keyList">
+                <li class="gray">(</li>
+                <li class="gray">)</li>
+                <li class="gray">%</li>
+                <li class="gray">AC</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li class="gray">/</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li class="gray">*</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li class="gray">-</li>
+                <li>0</li>
+                <li >.</li>
+                <li class="blue">=</li>
+                <li class="gray">+</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    var list = document.querySelector('.keyList');
+    var displayEle = document.querySelector('.display');
+    list.addEventListener('click',getVal,false);
+    function getVal(ev)
+    {
+        var target = ev.target;
+        var activeVal = target.innerHTML;
+        displayEle.innerHTML += activeVal;
+    }
+    </script>
+</body>
+</html>
